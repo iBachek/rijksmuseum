@@ -41,9 +41,7 @@ public final class APIService: APIServiceProtocol {
 
     public func getCollections(using parameters: APIServiceParametrsProtocol, identifier: String, completion: @escaping (Result<Data, APIError>) -> Void) {
         let path = "/collection"
-        sendRequest(path: path, method: .GET, identifier: identifier, parameters: parameters.jsonParametrs) { (result: Result<Data, APIError>) in
-            // TODO
-        }
+        sendRequest(path: path, method: .GET, identifier: identifier, parameters: parameters.jsonParametrs) { completion($0) }
     }
 
     public func getItemDetails(itemID: String, completion: @escaping (Result<Data, APIError>) -> Void) {
@@ -104,8 +102,21 @@ extension APIService {
         }
 
         let request = URLRequest(url: url)
-        let dataTask = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-            // TODO
+        let dataTask = URLSession.shared.dataTask(with: request) { [weak self] (data: Data?, response: URLResponse?, error: Error?) in
+            self?.dataTasks[identifier] = nil
+
+            if let error = error {
+                print("ERROR: \(error)")
+                completion(Result.failure(APIError.invalidRequest))
+                return
+            }
+
+            guard let data = data else {
+                completion(Result.failure(APIError.invalidResponse))
+                return
+            }
+
+            completion(Result.success(data))
         }
 
         dataTask.resume()

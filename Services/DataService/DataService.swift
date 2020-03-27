@@ -23,8 +23,12 @@ public final class DataService: DataServiceProtocol {
         apiService.getCollections(using: parameters, identifier: requestIdentifier) { (result: Result<Data, APIError>) in
             switch result {
             case .success(let data):
-                let artObjects: [ArtObject] = try! JSONDecoder().decode([ArtObject].self, from: data)
-                completion(Result.success(artObjects))
+                do {
+                    let artObjectsResponse: ArtObjectsResponse = try JSONDecoder().decode(ArtObjectsResponse.self, from: data)
+                    completion(Result.success(artObjectsResponse.artObjects))
+                } catch let error {
+                    print(error)
+                }
 
             case .failure(let error):
                 completion(Result.failure(error))

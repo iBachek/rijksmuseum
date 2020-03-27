@@ -1,5 +1,7 @@
 import UIKit
 
+import Services
+
 protocol AppDelegateProtocol {
     var context: AppContext! { get }
 }
@@ -31,6 +33,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppDelegateProtocol {
 
     func setupAppContext(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         context = AppContext.makeContext()
+
+        let requestParameters = ArtObjectsParameters(offset: 0, limit: 10)
+        context.dataService.getArtObjects(requestIdentifier: "123", parameters: requestParameters) { (result: Result<[ArtObject], APIError>) in
+            switch result {
+            case .success(let array):
+                print(array)
+
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
 
