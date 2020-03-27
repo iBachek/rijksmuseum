@@ -46,9 +46,7 @@ public final class APIService: APIServiceProtocol {
 
     public func getItemDetails(itemID: String, completion: @escaping (Result<Data, APIError>) -> Void) {
         let path = "/collection/\(itemID)"
-        sendRequest(path: path, method: .GET, identifier: path) { (result: Result<Data, APIError>) in
-            // TODO
-        }
+        sendRequest(path: path, method: .GET, identifier: path) { completion($0) }
     }
 
     public func cancelRequest(with identifier: String) {
