@@ -1,0 +1,624 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC0DCBC0242CCC8800EE80F0 /* ArtObjectDetailsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0DCBBF242CCC8800EE80F0 /* ArtObjectDetailsFactory.swift */; };
+		AC0DCBC2242CCCA900EE80F0 /* ArtObjectDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0DCBC1242CCCA900EE80F0 /* ArtObjectDetailsViewModel.swift */; };
+		AC0DCBC4242CCCB900EE80F0 /* ArtObjectDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0DCBC3242CCCB900EE80F0 /* ArtObjectDetailsController.swift */; };
+		AC3D4369242A211D00B108EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D4368242A211D00B108EF /* AppDelegate.swift */; };
+		AC3D436B242A211D00B108EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D436A242A211D00B108EF /* SceneDelegate.swift */; };
+		AC3D436D242A211D00B108EF /* ArtObjectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D436C242A211D00B108EF /* ArtObjectsController.swift */; };
+		AC3D4372242A211E00B108EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC3D4371242A211E00B108EF /* Assets.xcassets */; };
+		AC3D4375242A211E00B108EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC3D4373242A211E00B108EF /* LaunchScreen.storyboard */; };
+		AC3D4385242A42DC00B108EF /* Services.h in Headers */ = {isa = PBXBuildFile; fileRef = AC3D4383242A42DC00B108EF /* Services.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC3D4388242A42DC00B108EF /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3D4381242A42DC00B108EF /* Services.framework */; };
+		AC3D4389242A42DC00B108EF /* Services.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC3D4381242A42DC00B108EF /* Services.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AC3D4390242A431B00B108EF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D438F242A431B00B108EF /* APIService.swift */; };
+		AC69D085242CF49000183748 /* ArtObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC69D084242CF49000183748 /* ArtObject.swift */; };
+		AC7CC23F242B9B7F00BFD554 /* ArtObjectsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7CC23E242B9B7F00BFD554 /* ArtObjectsFactory.swift */; };
+		AC7CC246242BA5F300BFD554 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7CC245242BA5F300BFD554 /* DataService.swift */; };
+		AC7CC248242BA6C500BFD554 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7CC247242BA6C500BFD554 /* AppContext.swift */; };
+		AC9A6BB0242A52AC00E9E55D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A6BAF242A52AC00E9E55D /* APIError.swift */; };
+		ACAC8FA6242D0D7E00631283 /* ArtObjectDetailsParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAC8FA5242D0D7E00631283 /* ArtObjectDetailsParameters.swift */; };
+		ACCA7B23242B7B480061AB4D /* ArtObjectsParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA7B22242B7B480061AB4D /* ArtObjectsParameters.swift */; };
+		ACCA7B26242B9A5B0061AB4D /* ArtObjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA7B25242B9A5B0061AB4D /* ArtObjectsViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AC3D4386242A42DC00B108EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC3D435D242A211D00B108EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC3D4380242A42DC00B108EF;
+			remoteInfo = Services;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AC3D438D242A42DC00B108EF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AC3D4389242A42DC00B108EF /* Services.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AC0DCBBF242CCC8800EE80F0 /* ArtObjectDetailsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectDetailsFactory.swift; sourceTree = "<group>"; };
+		AC0DCBC1242CCCA900EE80F0 /* ArtObjectDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectDetailsViewModel.swift; sourceTree = "<group>"; };
+		AC0DCBC3242CCCB900EE80F0 /* ArtObjectDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectDetailsController.swift; sourceTree = "<group>"; };
+		AC3D4365242A211D00B108EF /* Rijksmuseum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rijksmuseum.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC3D4368242A211D00B108EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AC3D436A242A211D00B108EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		AC3D436C242A211D00B108EF /* ArtObjectsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectsController.swift; sourceTree = "<group>"; };
+		AC3D4371242A211E00B108EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AC3D4374242A211E00B108EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AC3D4376242A211E00B108EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC3D4381242A42DC00B108EF /* Services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC3D4383242A42DC00B108EF /* Services.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Services.h; sourceTree = "<group>"; };
+		AC3D4384242A42DC00B108EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC3D438F242A431B00B108EF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		AC69D084242CF49000183748 /* ArtObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObject.swift; sourceTree = "<group>"; };
+		AC7CC23E242B9B7F00BFD554 /* ArtObjectsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectsFactory.swift; sourceTree = "<group>"; };
+		AC7CC245242BA5F300BFD554 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		AC7CC247242BA6C500BFD554 /* AppContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
+		AC9A6BAF242A52AC00E9E55D /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		ACAC8FA5242D0D7E00631283 /* ArtObjectDetailsParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectDetailsParameters.swift; sourceTree = "<group>"; };
+		ACCA7B22242B7B480061AB4D /* ArtObjectsParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectsParameters.swift; sourceTree = "<group>"; };
+		ACCA7B25242B9A5B0061AB4D /* ArtObjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectsViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC3D4362242A211D00B108EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC3D4388242A42DC00B108EF /* Services.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC3D437E242A42DC00B108EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16D3417C349759556D0A735F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AC0DCBBE242CCC5C00EE80F0 /* ArtObjectDetails */ = {
+			isa = PBXGroup;
+			children = (
+				AC0DCBBF242CCC8800EE80F0 /* ArtObjectDetailsFactory.swift */,
+				AC0DCBC1242CCCA900EE80F0 /* ArtObjectDetailsViewModel.swift */,
+				AC0DCBC3242CCCB900EE80F0 /* ArtObjectDetailsController.swift */,
+			);
+			path = ArtObjectDetails;
+			sourceTree = "<group>";
+		};
+		AC3D435C242A211D00B108EF = {
+			isa = PBXGroup;
+			children = (
+				AC3D4367242A211D00B108EF /* Rijksmuseum */,
+				AC3D4382242A42DC00B108EF /* Services */,
+				AC3D4366242A211D00B108EF /* Products */,
+				16D3417C349759556D0A735F /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		AC3D4366242A211D00B108EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC3D4365242A211D00B108EF /* Rijksmuseum.app */,
+				AC3D4381242A42DC00B108EF /* Services.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC3D4367242A211D00B108EF /* Rijksmuseum */ = {
+			isa = PBXGroup;
+			children = (
+				AC3D4368242A211D00B108EF /* AppDelegate.swift */,
+				AC3D436A242A211D00B108EF /* SceneDelegate.swift */,
+				AC7CC247242BA6C500BFD554 /* AppContext.swift */,
+				ACCA7B21242B48250061AB4D /* Screens */,
+				AC7CC240242B9F3100BFD554 /* Resources */,
+			);
+			path = Rijksmuseum;
+			sourceTree = "<group>";
+		};
+		AC3D4382242A42DC00B108EF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AC3D4383242A42DC00B108EF /* Services.h */,
+				AC3D4384242A42DC00B108EF /* Info.plist */,
+				AC3D438E242A42F800B108EF /* APIService */,
+				AC7CC243242BA00500BFD554 /* DataService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AC3D438E242A42F800B108EF /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				AC3D438F242A431B00B108EF /* APIService.swift */,
+				AC9A6BAF242A52AC00E9E55D /* APIError.swift */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
+		AC7CC240242B9F3100BFD554 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AC3D4373242A211E00B108EF /* LaunchScreen.storyboard */,
+				AC3D4376242A211E00B108EF /* Info.plist */,
+				AC3D4371242A211E00B108EF /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AC7CC243242BA00500BFD554 /* DataService */ = {
+			isa = PBXGroup;
+			children = (
+				AC7CC245242BA5F300BFD554 /* DataService.swift */,
+				AC9A6BAE242A47EC00E9E55D /* RequestParameters */,
+				AC7CC244242BA01C00BFD554 /* Models */,
+			);
+			path = DataService;
+			sourceTree = "<group>";
+		};
+		AC7CC244242BA01C00BFD554 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AC69D084242CF49000183748 /* ArtObject.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AC9A6BAE242A47EC00E9E55D /* RequestParameters */ = {
+			isa = PBXGroup;
+			children = (
+				ACCA7B22242B7B480061AB4D /* ArtObjectsParameters.swift */,
+				ACAC8FA5242D0D7E00631283 /* ArtObjectDetailsParameters.swift */,
+			);
+			path = RequestParameters;
+			sourceTree = "<group>";
+		};
+		ACCA7B21242B48250061AB4D /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				ACCA7B24242B82FE0061AB4D /* ArtObjects */,
+				AC0DCBBE242CCC5C00EE80F0 /* ArtObjectDetails */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		ACCA7B24242B82FE0061AB4D /* ArtObjects */ = {
+			isa = PBXGroup;
+			children = (
+				AC7CC23E242B9B7F00BFD554 /* ArtObjectsFactory.swift */,
+				ACCA7B25242B9A5B0061AB4D /* ArtObjectsViewModel.swift */,
+				AC3D436C242A211D00B108EF /* ArtObjectsController.swift */,
+			);
+			path = ArtObjects;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		AC3D437C242A42DC00B108EF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC3D4385242A42DC00B108EF /* Services.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		AC3D4364242A211D00B108EF /* Rijksmuseum */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC3D4379242A211E00B108EF /* Build configuration list for PBXNativeTarget "Rijksmuseum" */;
+			buildPhases = (
+				AC3D4361242A211D00B108EF /* Sources */,
+				AC3D4362242A211D00B108EF /* Frameworks */,
+				AC3D4363242A211D00B108EF /* Resources */,
+				AC3D438D242A42DC00B108EF /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC3D4387242A42DC00B108EF /* PBXTargetDependency */,
+			);
+			name = Rijksmuseum;
+			productName = Rijksmuseum;
+			productReference = AC3D4365242A211D00B108EF /* Rijksmuseum.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AC3D4380242A42DC00B108EF /* Services */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC3D438A242A42DC00B108EF /* Build configuration list for PBXNativeTarget "Services" */;
+			buildPhases = (
+				AC3D437C242A42DC00B108EF /* Headers */,
+				AC3D437D242A42DC00B108EF /* Sources */,
+				AC3D437E242A42DC00B108EF /* Frameworks */,
+				AC3D437F242A42DC00B108EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Services;
+			productName = Services;
+			productReference = AC3D4381242A42DC00B108EF /* Services.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC3D435D242A211D00B108EF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Ihar Bachak";
+				TargetAttributes = {
+					AC3D4364242A211D00B108EF = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					AC3D4380242A42DC00B108EF = {
+						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
+					};
+				};
+			};
+			buildConfigurationList = AC3D4360242A211D00B108EF /* Build configuration list for PBXProject "Rijksmuseum" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AC3D435C242A211D00B108EF;
+			productRefGroup = AC3D4366242A211D00B108EF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC3D4364242A211D00B108EF /* Rijksmuseum */,
+				AC3D4380242A42DC00B108EF /* Services */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC3D4363242A211D00B108EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC3D4375242A211E00B108EF /* LaunchScreen.storyboard in Resources */,
+				AC3D4372242A211E00B108EF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC3D437F242A42DC00B108EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC3D4361242A211D00B108EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACCA7B26242B9A5B0061AB4D /* ArtObjectsViewModel.swift in Sources */,
+				AC0DCBC4242CCCB900EE80F0 /* ArtObjectDetailsController.swift in Sources */,
+				AC7CC248242BA6C500BFD554 /* AppContext.swift in Sources */,
+				AC3D436D242A211D00B108EF /* ArtObjectsController.swift in Sources */,
+				AC0DCBC2242CCCA900EE80F0 /* ArtObjectDetailsViewModel.swift in Sources */,
+				AC3D4369242A211D00B108EF /* AppDelegate.swift in Sources */,
+				AC3D436B242A211D00B108EF /* SceneDelegate.swift in Sources */,
+				AC0DCBC0242CCC8800EE80F0 /* ArtObjectDetailsFactory.swift in Sources */,
+				AC7CC23F242B9B7F00BFD554 /* ArtObjectsFactory.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC3D437D242A42DC00B108EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACAC8FA6242D0D7E00631283 /* ArtObjectDetailsParameters.swift in Sources */,
+				AC3D4390242A431B00B108EF /* APIService.swift in Sources */,
+				AC69D085242CF49000183748 /* ArtObject.swift in Sources */,
+				ACCA7B23242B7B480061AB4D /* ArtObjectsParameters.swift in Sources */,
+				AC9A6BB0242A52AC00E9E55D /* APIError.swift in Sources */,
+				AC7CC246242BA5F300BFD554 /* DataService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AC3D4387242A42DC00B108EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC3D4380242A42DC00B108EF /* Services */;
+			targetProxy = AC3D4386242A42DC00B108EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AC3D4373242A211E00B108EF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC3D4374242A211E00B108EF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AC3D4377242A211E00B108EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AC3D4378242A211E00B108EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AC3D437A242A211E00B108EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AHH26Q3X85;
+				INFOPLIST_FILE = Rijksmuseum/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.TheNightWatch.Rijksmuseum;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AC3D437B242A211E00B108EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AHH26Q3X85;
+				INFOPLIST_FILE = Rijksmuseum/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.TheNightWatch.Rijksmuseum;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AC3D438B242A42DC00B108EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Services/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.TheNightWatch.Services;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AC3D438C242A42DC00B108EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Services/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.TheNightWatch.Services;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC3D4360242A211D00B108EF /* Build configuration list for PBXProject "Rijksmuseum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC3D4377242A211E00B108EF /* Debug */,
+				AC3D4378242A211E00B108EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC3D4379242A211E00B108EF /* Build configuration list for PBXNativeTarget "Rijksmuseum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC3D437A242A211E00B108EF /* Debug */,
+				AC3D437B242A211E00B108EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC3D438A242A42DC00B108EF /* Build configuration list for PBXNativeTarget "Services" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC3D438B242A42DC00B108EF /* Debug */,
+				AC3D438C242A42DC00B108EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AC3D435D242A211D00B108EF /* Project object */;
+}
