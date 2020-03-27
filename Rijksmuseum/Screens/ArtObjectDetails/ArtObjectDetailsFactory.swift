@@ -3,12 +3,11 @@ import Services
 
 final class ArtObjectDetailsFactory {
 
-    func make() -> UIViewController {
-//        let requestParameters = ArtObjectDetailsParameters(offset: 0, limit: 10)
-//        let viewModel = ArtObjectsViewModel(requestParameters: requestParameters, context: AppDelegate.sharedInstance.context)
-//        let controller = ArtObjectsController(viewModel: viewModel)
-//
-//        return controller
-        return UIViewController()
+    func make(artObjectID: String) -> UIViewController {
+        let requestParameters = ArtObjectDetailsParameters(artObjectID: artObjectID)
+        let viewModel = ArtObjectDetailsViewModel(requestParameters: requestParameters, context: AppDelegate.sharedInstance.context)
+        let controller = ArtObjectDetailsController(viewModel: viewModel)
+
+        return controller
     }
 }

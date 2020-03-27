@@ -1,21 +1,13 @@
 import Foundation
 
 public struct ArtObjectDetailsParameters: APIServiceParametrsProtocol {
-    public var offset: Int
-    public var limit: Int
-    public var collectionsCentury: Int
+    public var artObjectID: String
 
     public var jsonParametrs: [String: String] {
-        return [
-            "p": String(offset),
-            "ps": String(limit),
-            "f.dating.period": String(collectionsCentury)
-        ]
+        return [String: String]()
     }
 
-    public init(offset: Int, limit: Int, collectionsCentury: Int = 17) {
-        self.offset = offset
-        self.limit = limit
-        self.collectionsCentury = collectionsCentury
+    public init(artObjectID: String) {
+        self.artObjectID = artObjectID
     }
 }

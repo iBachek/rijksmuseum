@@ -5,8 +5,8 @@ public protocol APIServiceParametrsProtocol {
 }
 
 public protocol APIServiceProtocol: AnyObject {
-    func getCollections(using parameters: APIServiceParametrsProtocol, identifier: String, completion: @escaping (Result<[String: Any], APIError>) -> Void)
-    func getItemDetail(using parameters: APIServiceParametrsProtocol, identifier: String, completion: @escaping (Result<[String: Any], APIError>) -> Void)
+    func getCollections(using parameters: APIServiceParametrsProtocol, identifier: String, completion: @escaping (Result<Data, APIError>) -> Void)
+    func getItemDetails(itemID: String, completion: @escaping (Result<Data, APIError>) -> Void)
     func cancelRequest(with identifier: String)
     func cancelAllRequests()
 }
@@ -39,14 +39,18 @@ public final class APIService: APIServiceProtocol {
         self.queue = queue
     }
 
-    public func getCollections(using parameters: APIServiceParametrsProtocol, identifier: String, completion: @escaping (Result<[String: Any], APIError>) -> Void) {
+    public func getCollections(using parameters: APIServiceParametrsProtocol, identifier: String, completion: @escaping (Result<Data, APIError>) -> Void) {
         let path = "/collection"
-        sendRequest(path: path, method: .GET, identifier: identifier, parameters: parameters.jsonParametrs) { (result: Result<[String : Any], APIError>) in
+        sendRequest(path: path, method: .GET, identifier: identifier, parameters: parameters.jsonParametrs) { (result: Result<Data, APIError>) in
             // TODO
         }
     }
 
-    public func getItemDetail(using parameters: APIServiceParametrsProtocol, identifier: String, completion: @escaping (Result<[String: Any], APIError>) -> Void){
+    public func getItemDetails(itemID: String, completion: @escaping (Result<Data, APIError>) -> Void) {
+        let path = "/collection/\(itemID)"
+        sendRequest(path: path, method: .GET, identifier: path) { (result: Result<Data, APIError>) in
+            // TODO
+        }
     }
 
     public func cancelRequest(with identifier: String) {
@@ -73,7 +77,7 @@ extension APIService {
                              method: HTTPMethod,
                              identifier: String,
                              parameters: [String: String]? = nil,
-                             completion: @escaping (Result<[String: Any], APIError>) -> Void) {
+                             completion: @escaping (Result<Data, APIError>) -> Void) {
         let urlString = Constants.basePath + language.rawValue + path + "/"
         guard var components = URLComponents(string: urlString) else {
             completion(Result.failure(APIError.invalidRequest))
