@@ -24,8 +24,8 @@ public final class DataService: DataServiceProtocol {
             switch result {
             case .success(let data):
                 do {
-                    let artObjectsResponse: ArtObjectsResponse = try JSONDecoder().decode(ArtObjectsResponse.self, from: data)
-                    completion(Result.success(artObjectsResponse.artObjects))
+                    let response: ArtObjectsResponse = try JSONDecoder().decode(ArtObjectsResponse.self, from: data)
+                    completion(Result.success(response.artObjects))
                 } catch let error {
                     print(error)
                 }
@@ -40,8 +40,12 @@ public final class DataService: DataServiceProtocol {
         apiService.getItemDetails(itemID: parameters.artObjectID) { (result: Result<Data, APIError>) in
             switch result {
             case .success(let data):
-                let artObject: ArtObject = try! JSONDecoder().decode(ArtObject.self, from: data)
-                completion(Result.success(artObject))
+                do {
+                    let response: ArtObjectDetailsResponse = try JSONDecoder().decode(ArtObjectDetailsResponse.self, from: data)
+                    completion(Result.success(response.artObject))
+                } catch let error {
+                    print(error)
+                }
 
             case .failure(let error):
                 completion(Result.failure(error))
