@@ -85,7 +85,8 @@ extension ArtObjectDetailsController {
                 break
 
             case .failure(let error):
-                print(error)
+//                print(error)
+                break
             }
         }
     }

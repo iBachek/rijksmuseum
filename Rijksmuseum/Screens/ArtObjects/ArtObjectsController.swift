@@ -57,7 +57,8 @@ extension ArtObjectsController {
                 self?.collectionView.reloadData()
 
             case .failure(let error):
-                print(error)
+//                print(error)
+                break
             }
         }
     }
@@ -133,11 +134,11 @@ extension ArtObjectsController: UICollectionViewDataSourcePrefetching {
         }
     }
 
-    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
-        for indexPath in indexPaths {
-            viewModel.cancelLoadArtObject(at: indexPath)
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+//        for indexPath in indexPaths {
+//            viewModel.cancelLoadArtObject(at: indexPath)
+//        }
+//    }
 }
 
 // MARK: - Utility
@@ -149,7 +150,8 @@ fileprivate extension ArtObjectsController {
                 self?.reloadItemIfNeeded(itemIndexPath: indexPath)
 
             case .failure(let error):
-                print(error)
+//                print(error)
+                break
             }
         }
     }

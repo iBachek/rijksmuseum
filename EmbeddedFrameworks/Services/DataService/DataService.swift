@@ -34,7 +34,7 @@ public final class DataService: DataServiceProtocol {
                         completion(Result.success(response))
                     }
                 } catch let error {
-                    print(error)
+//                    print(error)
                 }
 
             case .failure(let error):
@@ -59,7 +59,7 @@ public final class DataService: DataServiceProtocol {
                         completion(Result.success(response.artObject))
                     }
                 } catch let error {
-                    print(error)
+//                    print(error)
                 }
 
             case .failure(let error):

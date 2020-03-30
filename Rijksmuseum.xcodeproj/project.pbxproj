@@ -43,7 +43,6 @@
 		ACEA32A6242FC17E00E79FC9 /* UIStyle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACEA329E242FC17E00E79FC9 /* UIStyle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ACEA32AB242FC1A300E79FC9 /* UIStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEA32AA242FC1A300E79FC9 /* UIStyle.swift */; };
 		ACEA32AE242FE54A00E79FC9 /* RMError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEA32AD242FE54A00E79FC9 /* RMError.swift */; };
-		ACFFBE9F2431229400875FDF /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFFBE9E2431229400875FDF /* ArrayExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,7 +114,6 @@
 		ACEA32A1242FC17E00E79FC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACEA32AA242FC1A300E79FC9 /* UIStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyle.swift; sourceTree = "<group>"; };
 		ACEA32AD242FE54A00E79FC9 /* RMError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMError.swift; sourceTree = "<group>"; };
-		ACFFBE9E2431229400875FDF /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				AC1588BD242E298A00DCE5E6 /* UICollectionViewCell+Identifier.swift */,
-				ACFFBE9E2431229400875FDF /* ArrayExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -507,7 +504,6 @@
 				AC0DCBC2242CCCA900EE80F0 /* ArtObjectDetailsViewModel.swift in Sources */,
 				AC3D4369242A211D00B108EF /* AppDelegate.swift in Sources */,
 				AC3D436B242A211D00B108EF /* SceneDelegate.swift in Sources */,
-				ACFFBE9F2431229400875FDF /* ArrayExtensions.swift in Sources */,
 				AC1588BB242E27D600DCE5E6 /* ArtObjectCollectionViewCell.swift in Sources */,
 				AC0DCBC0242CCC8800EE80F0 /* ArtObjectDetailsFactory.swift in Sources */,
 				AC7CC23F242B9B7F00BFD554 /* ArtObjectsFactory.swift in Sources */,

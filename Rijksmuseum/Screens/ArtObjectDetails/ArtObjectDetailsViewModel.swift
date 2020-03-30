@@ -25,7 +25,7 @@ final class ArtObjectDetailsViewModel: ArtObjectDetailsViewModelProtocol {
                 completion(Result.success(()))
 
             case .failure(let error):
-                print(error)
+//                print(error)
                 completion(Result.success(()))
             }
         }

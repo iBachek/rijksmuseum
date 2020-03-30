@@ -36,13 +36,18 @@ final class ArtObjectsViewModel: ArtObjectsViewModelProtocol {
                 completion(Result.success(response.artObjectsCount))
 
             case .failure(let error):
-                print(error)
+//                print(error)
                 completion(Result.failure(RMError.somethingWrong))
             }
         }
     }
 
     func loadArtObject(at indexPath: IndexPath, completion: @escaping (Result<Void, RMError>) -> Void) {
+        guard artObjects[indexPath.item] == nil else {
+            completion(Result.success(()))
+            return
+        }
+
         let identifier = "\(indexPath.item)"
         let requestParameters = ArtObjectsParameters(offset: indexPath.item, limit: 1)
         context.dataService.getArtObjects(requestIdentifier: identifier, parameters: requestParameters) { [weak self] (result: Result<ArtObjectsResponse, APIError>) in
@@ -52,7 +57,7 @@ final class ArtObjectsViewModel: ArtObjectsViewModelProtocol {
                 completion(Result.success(()))
 
             case .failure(let error):
-                print(error)
+//                print(error)
                 completion(Result.failure(RMError.somethingWrong))
             }
         }
@@ -63,11 +68,7 @@ final class ArtObjectsViewModel: ArtObjectsViewModelProtocol {
     }
 
     func configure(view: ArtObjectViewProtocol, indexPath: IndexPath) -> Bool {
-        guard let element = artObjects.safetyItem(at: indexPath.item) else {
-            return false
-        }
-
-        guard let artObject = element else {
+        guard let artObject = artObjects[indexPath.item] else {
             return false
         }
 
@@ -78,11 +79,7 @@ final class ArtObjectsViewModel: ArtObjectsViewModelProtocol {
     }
 
     func artObjectID(at indexPath: IndexPath) -> String? {
-        guard let element = artObjects.safetyItem(at: indexPath.item) else {
-            return nil
-        }
-
-        guard let artObject = element else {
+        guard let artObject = artObjects[indexPath.item] else {
             return nil
         }
 

@@ -59,7 +59,7 @@ public final class APIRequestor: APIRequestorProtocol {
         let request = URLRequest(url: url)
         let dataTask = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             if let error = error {
-                print("ERROR: \(error)")
+//                print("ERROR: \(error)")
                 completion(Result.failure(APIError.invalidRequest))
                 return
             }
