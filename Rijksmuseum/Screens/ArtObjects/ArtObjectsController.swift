@@ -99,12 +99,12 @@ extension ArtObjectsController: UICollectionViewDataSource {
 extension ArtObjectsController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let artObjectID = viewModel.artObjectID(at: indexPath) else {
+        guard let parameters = viewModel.artObjectDetailsParameters(at: indexPath) else {
             return
         }
 
         let artObjectDetailsFactory = ArtObjectDetailsFactory()
-        let controller = artObjectDetailsFactory.make(artObjectID: artObjectID)
+        let controller = artObjectDetailsFactory.make(requestParameters: parameters)
         present(controller, animated: true)
     }
 }
@@ -134,11 +134,11 @@ extension ArtObjectsController: UICollectionViewDataSourcePrefetching {
         }
     }
 
-//    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
-//        for indexPath in indexPaths {
-//            viewModel.cancelLoadArtObject(at: indexPath)
-//        }
-//    }
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            viewModel.cancelLoadArtObject(at: indexPath)
+        }
+    }
 }
 
 // MARK: - Utility

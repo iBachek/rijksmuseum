@@ -1,13 +1,13 @@
 import Foundation
 
 public struct ArtObjectDetailsParameters: APIServiceParametrsProtocol {
-    public var artObjectID: String
+    public var artObject: ArtObject
 
     public var jsonParametrs: [String: String] {
         return [String: String]()
     }
 
-    public init(artObjectID: String) {
-        self.artObjectID = artObjectID
+    public init(artObject: ArtObject) {
+        self.artObject = artObject
     }
 }

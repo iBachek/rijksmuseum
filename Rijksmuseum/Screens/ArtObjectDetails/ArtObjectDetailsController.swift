@@ -97,9 +97,8 @@ extension ArtObjectDetailsController: ArtObjectViewProtocol {
 
     func setImagePath(_ imagePath: String) {
         let url = URL(string: imagePath)
-        let placeholder = UIImage(named: "placeholder_art_image")
-        imageView.kf.setImage(with: url, placeholder: placeholder, options: [.scaleFactor(UIScreen.main.scale),
-                                                                             .backgroundDecode])
+        imageView.kf.setImage(with: url, options: [.scaleFactor(UIScreen.main.scale),
+                                                   .backgroundDecode])
     }
 
     func setTitle(_ text: String) {

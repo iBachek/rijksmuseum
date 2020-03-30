@@ -23,12 +23,14 @@
 		AC3D4389242A42DC00B108EF /* Services.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC3D4381242A42DC00B108EF /* Services.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC3D4390242A431B00B108EF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D438F242A431B00B108EF /* APIService.swift */; };
 		AC4533142430D8DC0021D129 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AC4533132430D8DC0021D129 /* Kingfisher */; };
-		AC45331724310C530021D129 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = AC45331624310C530021D129 /* SDWebImage */; };
+		AC6351BB2432449100572FBB /* DataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6351BA2432449100572FBB /* DataServiceTests.swift */; };
+		AC6351BD24325B1C00572FBB /* ArtObjectDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6351BC24325B1C00572FBB /* ArtObjectDetailsViewModelTests.swift */; };
 		AC69D085242CF49000183748 /* ArtObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC69D084242CF49000183748 /* ArtObject.swift */; };
 		AC7CC23F242B9B7F00BFD554 /* ArtObjectsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7CC23E242B9B7F00BFD554 /* ArtObjectsFactory.swift */; };
 		AC7CC246242BA5F300BFD554 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7CC245242BA5F300BFD554 /* DataService.swift */; };
 		AC7CC248242BA6C500BFD554 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7CC247242BA6C500BFD554 /* AppContext.swift */; };
 		AC8D16DB242E048400CBDA61 /* ArtObjectsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8D16DA242E048400CBDA61 /* ArtObjectsResponse.swift */; };
+		AC8E081E24323B9700383E28 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8E081D24323B9700383E28 /* APIServiceTests.swift */; };
 		AC9A6BB0242A52AC00E9E55D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A6BAF242A52AC00E9E55D /* APIError.swift */; };
 		ACAC8FA6242D0D7E00631283 /* ArtObjectDetailsParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAC8FA5242D0D7E00631283 /* ArtObjectDetailsParameters.swift */; };
 		ACCA7B23242B7B480061AB4D /* ArtObjectsParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA7B22242B7B480061AB4D /* ArtObjectsParameters.swift */; };
@@ -52,6 +54,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = AC3D4380242A42DC00B108EF;
 			remoteInfo = Services;
+		};
+		AC8E082024323B9700383E28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC3D435D242A211D00B108EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC3D4364242A211D00B108EF;
+			remoteInfo = Rijksmuseum;
 		};
 		ACEA32A3242FC17E00E79FC9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -95,11 +104,16 @@
 		AC3D4383242A42DC00B108EF /* Services.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Services.h; sourceTree = "<group>"; };
 		AC3D4384242A42DC00B108EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC3D438F242A431B00B108EF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		AC6351BA2432449100572FBB /* DataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceTests.swift; sourceTree = "<group>"; };
+		AC6351BC24325B1C00572FBB /* ArtObjectDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		AC69D084242CF49000183748 /* ArtObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObject.swift; sourceTree = "<group>"; };
 		AC7CC23E242B9B7F00BFD554 /* ArtObjectsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectsFactory.swift; sourceTree = "<group>"; };
 		AC7CC245242BA5F300BFD554 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		AC7CC247242BA6C500BFD554 /* AppContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
 		AC8D16DA242E048400CBDA61 /* ArtObjectsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectsResponse.swift; sourceTree = "<group>"; };
+		AC8E081B24323B9700383E28 /* RijksmuseumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RijksmuseumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC8E081D24323B9700383E28 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
+		AC8E081F24323B9700383E28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC9A6BAF242A52AC00E9E55D /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		ACAC8FA5242D0D7E00631283 /* ArtObjectDetailsParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectDetailsParameters.swift; sourceTree = "<group>"; };
 		ACCA7B22242B7B480061AB4D /* ArtObjectsParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectsParameters.swift; sourceTree = "<group>"; };
@@ -123,12 +137,18 @@
 			files = (
 				AC4533142430D8DC0021D129 /* Kingfisher in Frameworks */,
 				ACEA32A5242FC17E00E79FC9 /* UIStyle.framework in Frameworks */,
-				AC45331724310C530021D129 /* SDWebImage in Frameworks */,
 				AC3D4388242A42DC00B108EF /* Services.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		AC3D437E242A42DC00B108EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC8E081824323B9700383E28 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -168,6 +188,7 @@
 			children = (
 				AC3D4367242A211D00B108EF /* Rijksmuseum */,
 				ACEA3287242FC09D00E79FC9 /* EmbeddedFrameworks */,
+				AC8E081C24323B9700383E28 /* RijksmuseumTests */,
 				AC3D4366242A211D00B108EF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -178,6 +199,7 @@
 				AC3D4365242A211D00B108EF /* Rijksmuseum.app */,
 				AC3D4381242A42DC00B108EF /* Services.framework */,
 				ACEA329E242FC17E00E79FC9 /* UIStyle.framework */,
+				AC8E081B24323B9700383E28 /* RijksmuseumTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -254,6 +276,17 @@
 				AC1588B8242E093600DCE5E6 /* ArtObjectDetailsResponse.swift */,
 			);
 			path = ResponseDecoders;
+			sourceTree = "<group>";
+		};
+		AC8E081C24323B9700383E28 /* RijksmuseumTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC8E081F24323B9700383E28 /* Info.plist */,
+				AC6351BC24325B1C00572FBB /* ArtObjectDetailsViewModelTests.swift */,
+				AC6351BA2432449100572FBB /* DataServiceTests.swift */,
+				AC8E081D24323B9700383E28 /* APIServiceTests.swift */,
+			);
+			path = RijksmuseumTests;
 			sourceTree = "<group>";
 		};
 		AC9A6BAE242A47EC00E9E55D /* RequestParameters */ = {
@@ -371,7 +404,6 @@
 			name = Rijksmuseum;
 			packageProductDependencies = (
 				AC4533132430D8DC0021D129 /* Kingfisher */,
-				AC45331624310C530021D129 /* SDWebImage */,
 			);
 			productName = Rijksmuseum;
 			productReference = AC3D4365242A211D00B108EF /* Rijksmuseum.app */;
@@ -394,6 +426,24 @@
 			productName = Services;
 			productReference = AC3D4381242A42DC00B108EF /* Services.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		AC8E081A24323B9700383E28 /* RijksmuseumTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC8E082224323B9700383E28 /* Build configuration list for PBXNativeTarget "RijksmuseumTests" */;
+			buildPhases = (
+				AC8E081724323B9700383E28 /* Sources */,
+				AC8E081824323B9700383E28 /* Frameworks */,
+				AC8E081924323B9700383E28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC8E082124323B9700383E28 /* PBXTargetDependency */,
+			);
+			name = RijksmuseumTests;
+			productName = RijksmuseumTests;
+			productReference = AC8E081B24323B9700383E28 /* RijksmuseumTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		ACEA329D242FC17E00E79FC9 /* UIStyle */ = {
 			isa = PBXNativeTarget;
@@ -419,7 +469,7 @@
 		AC3D435D242A211D00B108EF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Ihar Bachak";
 				TargetAttributes = {
@@ -429,6 +479,10 @@
 					AC3D4380242A42DC00B108EF = {
 						CreatedOnToolsVersion = 11.3.1;
 						LastSwiftMigration = 1130;
+					};
+					AC8E081A24323B9700383E28 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = AC3D4364242A211D00B108EF;
 					};
 					ACEA329D242FC17E00E79FC9 = {
 						CreatedOnToolsVersion = 11.4;
@@ -447,7 +501,6 @@
 			mainGroup = AC3D435C242A211D00B108EF;
 			packageReferences = (
 				AC4533122430D8DC0021D129 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				AC45331524310C530021D129 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = AC3D4366242A211D00B108EF /* Products */;
 			projectDirPath = "";
@@ -456,6 +509,7 @@
 				AC3D4364242A211D00B108EF /* Rijksmuseum */,
 				AC3D4380242A42DC00B108EF /* Services */,
 				ACEA329D242FC17E00E79FC9 /* UIStyle */,
+				AC8E081A24323B9700383E28 /* RijksmuseumTests */,
 			);
 		};
 /* End PBXProject section */
@@ -471,6 +525,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		AC3D437F242A42DC00B108EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC8E081924323B9700383E28 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -526,6 +587,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AC8E081724323B9700383E28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC8E081E24323B9700383E28 /* APIServiceTests.swift in Sources */,
+				AC6351BD24325B1C00572FBB /* ArtObjectDetailsViewModelTests.swift in Sources */,
+				AC6351BB2432449100572FBB /* DataServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ACEA329A242FC17E00E79FC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -541,6 +612,11 @@
 			isa = PBXTargetDependency;
 			target = AC3D4380242A42DC00B108EF /* Services */;
 			targetProxy = AC3D4386242A42DC00B108EF /* PBXContainerItemProxy */;
+		};
+		AC8E082124323B9700383E28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC3D4364242A211D00B108EF /* Rijksmuseum */;
+			targetProxy = AC8E082024323B9700383E28 /* PBXContainerItemProxy */;
 		};
 		ACEA32A4242FC17E00E79FC9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -774,6 +850,46 @@
 			};
 			name = Release;
 		};
+		AC8E082324323B9700383E28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RijksmuseumTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.TheNightWatch.RijksmuseumTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rijksmuseum.app/Rijksmuseum";
+			};
+			name = Debug;
+		};
+		AC8E082424323B9700383E28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RijksmuseumTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.TheNightWatch.RijksmuseumTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rijksmuseum.app/Rijksmuseum";
+			};
+			name = Release;
+		};
 		ACEA32A8242FC17E00E79FC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -863,6 +979,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		AC8E082224323B9700383E28 /* Build configuration list for PBXNativeTarget "RijksmuseumTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC8E082324323B9700383E28 /* Debug */,
+				AC8E082424323B9700383E28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		ACEA32A7242FC17E00E79FC9 /* Build configuration list for PBXNativeTarget "UIStyle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -883,14 +1008,6 @@
 				minimumVersion = 5.13.2;
 			};
 		};
-		AC45331524310C530021D129 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.6.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -898,11 +1015,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AC4533122430D8DC0021D129 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
-		};
-		AC45331624310C530021D129 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AC45331524310C530021D129 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -46,7 +46,7 @@ final class ArtObjectCollectionViewCell: UICollectionViewCell {
 
     func truncate() {
         imageView.kf.cancelDownloadTask()
-        imageView.image = UIImage(named: "placeholder_art_image")
+        imageView.image = nil
         titleView.text = "Loading..."
     }
 }
@@ -67,12 +67,11 @@ extension ArtObjectCollectionViewCell: ArtObjectViewProtocol {
 
     func setImagePath(_ imagePath: String) {
         let url = URL(string: imagePath)
-        let placeholder = UIImage(named: "placeholder_art_image")
         let scale = UIScreen.main.scale
         let resizingProcessor = ResizingImageProcessor(referenceSize: CGSize(width: 100 * scale, height: 100 * scale), mode: .aspectFill)
         imageView.kf.indicatorType = .activity
-        imageView.kf.setImage(with: url, placeholder: placeholder, options: [.backgroundDecode,
-                                                                             .processor(resizingProcessor)])
+        imageView.kf.setImage(with: url, options: [.backgroundDecode,
+                                                   .processor(resizingProcessor)])
     }
 
     func setTitle(_ text: String) {

@@ -7,7 +7,7 @@ protocol ArtObjectsViewModelProtocol: AnyObject {
     func loadArtObject(at indexPath: IndexPath, completion: @escaping (Result<Void, RMError>) -> Void)
     func cancelLoadArtObject(at indexPath: IndexPath)
     @discardableResult func configure(view: ArtObjectViewProtocol, indexPath: IndexPath) -> Bool
-    func artObjectID(at indexPath: IndexPath) -> String?
+    func artObjectDetailsParameters(at indexPath: IndexPath) -> ArtObjectDetailsParameters?
 }
 
 protocol ArtObjectsViewModelDelegate: AnyObject {
@@ -78,11 +78,11 @@ final class ArtObjectsViewModel: ArtObjectsViewModelProtocol {
         return true
     }
 
-    func artObjectID(at indexPath: IndexPath) -> String? {
+    func artObjectDetailsParameters(at indexPath: IndexPath) -> ArtObjectDetailsParameters? {
         guard let artObject = artObjects[indexPath.item] else {
             return nil
         }
 
-        return artObject.id
+        return ArtObjectDetailsParameters(artObject: artObject)
     }
 }

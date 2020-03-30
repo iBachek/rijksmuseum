@@ -45,6 +45,10 @@ public final class APIService: APIServiceProtocol {
 
     public func getItemDetails(itemID: String, completion: @escaping (Result<Data, APIError>) -> Void) {
         let path = "/collection/\(itemID)"
+        guard dataTasks[path] == nil else {
+            return
+        }
+
         let dataTask = requestor.dataTask(path: path, method: .GET, parameters: nil) { [weak self] (result: Result<Data, APIError>) in
             self?.dataTasks[path] = nil
             completion(result)

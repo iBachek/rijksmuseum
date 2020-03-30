@@ -46,7 +46,7 @@ public final class DataService: DataServiceProtocol {
     }
 
     public func getArtObjectDetails(parameters: ArtObjectDetailsParameters, completion: @escaping (Result<ArtObject, APIError>) -> Void) {
-        apiService.getItemDetails(itemID: parameters.artObjectID) { [weak self] (result: Result<Data, APIError>) in
+        apiService.getItemDetails(itemID: parameters.artObject.id) { [weak self] (result: Result<Data, APIError>) in
             guard let self = self else {
                 return
             }

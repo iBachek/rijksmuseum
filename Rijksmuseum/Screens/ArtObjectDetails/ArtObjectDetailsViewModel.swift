@@ -16,6 +16,9 @@ final class ArtObjectDetailsViewModel: ArtObjectDetailsViewModelProtocol {
     }
 
     func configure(view: ArtObjectViewProtocol, completion: @escaping (Result<Void, RMError>) -> Void) {
+        view.setImagePath(requestParameters.artObject.imagePath)
+        view.setTitle(requestParameters.artObject.title)
+        view.setDescription(requestParameters.artObject.description)
         context.dataService.getArtObjectDetails(parameters: requestParameters) { [weak view] (result: Result<ArtObject, APIError>) in
             switch result {
             case .success(let artObject):
