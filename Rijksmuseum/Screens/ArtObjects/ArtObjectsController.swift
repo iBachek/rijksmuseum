@@ -83,7 +83,16 @@ extension ArtObjectsController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension ArtObjectsController: UICollectionViewDelegate {
-    // TODO
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let artObjectID = viewModel.artObjectID(at: indexPath) else {
+            return
+        }
+
+        let artObjectDetailsFactory = ArtObjectDetailsFactory()
+        let controller = artObjectDetailsFactory.make(artObjectID: artObjectID)
+        present(controller, animated: true)
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout

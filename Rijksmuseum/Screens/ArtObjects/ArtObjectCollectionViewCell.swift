@@ -1,6 +1,6 @@
 import UIKit
 import UIStyle
-import SDWebImage
+import Kingfisher
 
 // MARK: - Variables
 final class ArtObjectCollectionViewCell: UICollectionViewCell {
@@ -45,7 +45,7 @@ final class ArtObjectCollectionViewCell: UICollectionViewCell {
     }
 
     func truncate() {
-        imageView.sd_cancelCurrentImageLoad()
+        imageView.kf.cancelDownloadTask()
         imageView.image = UIImage(named: "placeholder_art_image")
         titleView.text = "Loading..."
     }
@@ -68,12 +68,16 @@ extension ArtObjectCollectionViewCell: ArtObjectViewProtocol {
     func setImagePath(_ imagePath: String) {
          let url = URL(string: imagePath)
         let placeholder = UIImage(named: "placeholder_art_image")
-//        imageView.sd_setImage(with: url, placeholderImage: placeholder, options: SDWebImageOptions.scaleDownLargeImages)
-//        imageView.kf.setImage(with: url, placeholder: placeholder, options: [.backgroundDecode])
+        imageView.kf.setImage(with: url, placeholder: placeholder, options: [.scaleFactor(UIScreen.main.scale),
+                                                                             .backgroundDecode])
     }
 
-    func setTitle(_ title: String) {
-        titleView.text = title
+    func setTitle(_ text: String) {
+        titleView.text = text
+    }
+
+    func setDescription(_ text: String?) {
+        // not implemented for collection cell
     }
 }
 

@@ -1,4 +1,6 @@
 import UIKit
+import UIStyle
+import Kingfisher
 
 // MARK: - Variables
 final class ArtObjectDetailsController: UIViewController {
@@ -21,7 +23,9 @@ final class ArtObjectDetailsController: UIViewController {
 
     fileprivate lazy var titleLabel: UILabel = {
         let label = UILabel()
-        // TODO use Style
+        label.font = UIStyle.Font.medium(size: 23)
+        label.textColor = UIStyle.Color.darkGray
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
 
         return label
@@ -29,7 +33,9 @@ final class ArtObjectDetailsController: UIViewController {
 
     fileprivate lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        // TODO use Style
+        label.font = UIStyle.Font.regular(size: 17)
+        label.textColor = UIStyle.Color.darkGray
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
 
         return label
@@ -68,19 +74,85 @@ extension ArtObjectDetailsController {
         scrollView.addSubview(descriptionLabel)
         view.addSubview(scrollView)
         view.addSubview(activityIndicator)
-//        NSLayoutConstraint.activate(collectionViewConstraints + activityIndicatorConstraints)
+        NSLayoutConstraint.activate(scrollViewConstraints + imageViewConstraints + titleLabelConstraints + descriptionLabelConstraints + activityIndicatorConstraints)
 
         activityIndicator.startAnimating()
-//        viewModel.loadInitialArtObjects { [weak self] (result: Result<Void, RMError>) in
-//            self?.activityIndicator.stopAnimating()
-//
-//            switch result {
-//            case .success:
-//                self?.collectionView.reloadData()
-//
-//            case .failure(let error):
-//                print(error.description)
-//            }
-//        }
+        viewModel.configure(view: self) { [weak self] (result: Result<Void, RMError>) in
+            self?.activityIndicator.stopAnimating()
+
+            switch result {
+            case .success:
+                break
+
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+}
+
+// MARK: - ViewController life cycle
+extension ArtObjectDetailsController: ArtObjectViewProtocol {
+
+    func setImagePath(_ imagePath: String) {
+        let url = URL(string: imagePath)
+        let placeholder = UIImage(named: "placeholder_art_image")
+        imageView.kf.setImage(with: url, placeholder: placeholder, options: [.scaleFactor(UIScreen.main.scale),
+                                                                             .backgroundDecode])
+    }
+
+    func setTitle(_ text: String) {
+        titleLabel.text = text
+    }
+
+    func setDescription(_ text: String?) {
+        descriptionLabel.text = text
+    }
+}
+
+// MARK: - Constraints
+fileprivate extension ArtObjectDetailsController {
+
+    var scrollViewConstraints: [NSLayoutConstraint] {
+        return [
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ]
+    }
+
+    var imageViewConstraints: [NSLayoutConstraint] {
+        return [
+            imageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            imageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)
+        ]
+    }
+
+    var titleLabelConstraints: [NSLayoutConstraint] {
+        return [
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16),
+            titleLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16)
+        ]
+    }
+
+    var descriptionLabelConstraints: [NSLayoutConstraint] {
+        return [
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            descriptionLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -32),
+            descriptionLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+            descriptionLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16)
+        ]
+    }
+
+    var activityIndicatorConstraints: [NSLayoutConstraint] {
+        return [
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ]
     }
 }
