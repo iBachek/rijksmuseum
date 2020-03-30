@@ -3,7 +3,7 @@ import Services
 protocol ArtObjectsViewModelProtocol: AnyObject {
     var delegate: ArtObjectsViewModelDelegate? { get set }
 
-    func itemsCount() -> Int
+    func itemsCount(completion: @escaping (Result<Int, RMError>) -> Void)
     func loadArtObject(at indexPath: IndexPath, completion: @escaping (Result<Void, RMError>) -> Void)
     func cancelLoadArtObject(at indexPath: IndexPath)
     @discardableResult func configure(view: ArtObjectViewProtocol, indexPath: IndexPath) -> Bool
@@ -26,11 +26,19 @@ final class ArtObjectsViewModel: ArtObjectsViewModelProtocol {
         self.artObjects = [ArtObject?]()
     }
 
-    func itemsCount() -> Int {
-        if artObjects.isEmpty {
-            return 10
-        } else {
-            return artObjects.count
+    func itemsCount(completion: @escaping (Result<Int, RMError>) -> Void) {
+        let identifier = "itemsCount"
+        let requestParameters = ArtObjectsParameters(offset: 0, limit: 20)
+        context.dataService.getArtObjects(requestIdentifier: identifier, parameters: requestParameters) { [weak self] (result: Result<ArtObjectsResponse, APIError>) in
+            switch result {
+            case .success(let response):
+                self?.artObjects = [ArtObject?](repeating: nil, count: response.artObjectsCount)
+                completion(Result.success(response.artObjectsCount))
+
+            case .failure(let error):
+                print(error)
+                completion(Result.failure(RMError.somethingWrong))
+            }
         }
     }
 
@@ -40,13 +48,7 @@ final class ArtObjectsViewModel: ArtObjectsViewModelProtocol {
         context.dataService.getArtObjects(requestIdentifier: identifier, parameters: requestParameters) { [weak self] (result: Result<ArtObjectsResponse, APIError>) in
             switch result {
             case .success(let response):
-                if let isEmpty = self?.artObjects.isEmpty, isEmpty {
-                    self?.artObjects = [ArtObject?].init(repeating: nil, count: response.artObjectsCount)
-                    self?.artObjects[indexPath.item] = response.artObjects.first
-                } else {
-                    self?.artObjects[indexPath.item] = response.artObjects.first
-                }
-
+                self?.artObjects[indexPath.item] = response.artObjects.first
                 completion(Result.success(()))
 
             case .failure(let error):

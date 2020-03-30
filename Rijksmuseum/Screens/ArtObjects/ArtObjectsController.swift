@@ -25,9 +25,11 @@ final class ArtObjectsController: UIViewController {
     }()
 
     let viewModel: ArtObjectsViewModelProtocol
+    var numberOfItems: Int
 
     init(viewModel: ArtObjectsViewModelProtocol) {
         self.viewModel = viewModel
+        self.numberOfItems = 0
         super.init(nibName: nil, bundle: nil)
         self.viewModel.delegate = self
     }
@@ -47,6 +49,17 @@ extension ArtObjectsController {
         view.backgroundColor = .white
         view.addSubview(collectionView)
         NSLayoutConstraint.activate(collectionViewConstraints)
+
+        viewModel.itemsCount { [weak self] (result: Result<Int, RMError>) in
+            switch result {
+            case .success(let count):
+                self?.numberOfItems = count
+                self?.collectionView.reloadData()
+
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
 
@@ -62,7 +75,7 @@ extension ArtObjectsController: ArtObjectsViewModelDelegate {
 extension ArtObjectsController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.itemsCount()
+        return numberOfItems
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -104,6 +117,10 @@ extension ArtObjectsController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
     }
 }
 
@@ -150,6 +167,10 @@ fileprivate extension ArtObjectsController {
 
 // MARK: - Constraints
 fileprivate extension ArtObjectsController {
+
+    enum Constants {
+        static let sectionInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 20.0)
+    }
 
     var collectionViewConstraints: [NSLayoutConstraint] {
         return [
