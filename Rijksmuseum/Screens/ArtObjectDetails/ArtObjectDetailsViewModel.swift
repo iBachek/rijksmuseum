@@ -1,6 +1,10 @@
 import Services
 
-final class ArtObjectDetailsViewModel {
+protocol ArtObjectDetailsViewModelProtocol {
+
+}
+
+final class ArtObjectDetailsViewModel: ArtObjectDetailsViewModelProtocol {
 
     typealias Context = DataServiceHolderProtocol
     let context: Context

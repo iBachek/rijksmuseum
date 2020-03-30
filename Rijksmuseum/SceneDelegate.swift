@@ -11,8 +11,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        let collectionsFactory = ArtObjectsFactory()
-        let rootViewController = UINavigationController(rootViewController: collectionsFactory.make())
+        let welcomeFactory = WelcomeFactory()
+        let rootViewController = UINavigationController(rootViewController: welcomeFactory.make())
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene

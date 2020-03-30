@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,8 @@
 		AC0DCBC2242CCCA900EE80F0 /* ArtObjectDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0DCBC1242CCCA900EE80F0 /* ArtObjectDetailsViewModel.swift */; };
 		AC0DCBC4242CCCB900EE80F0 /* ArtObjectDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0DCBC3242CCCB900EE80F0 /* ArtObjectDetailsController.swift */; };
 		AC1588B9242E093600DCE5E6 /* ArtObjectDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1588B8242E093600DCE5E6 /* ArtObjectDetailsResponse.swift */; };
+		AC1588BB242E27D600DCE5E6 /* ArtObjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1588BA242E27D600DCE5E6 /* ArtObjectCollectionViewCell.swift */; };
+		AC1588BE242E298A00DCE5E6 /* UICollectionViewCell+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1588BD242E298A00DCE5E6 /* UICollectionViewCell+Identifier.swift */; };
 		AC3D4369242A211D00B108EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D4368242A211D00B108EF /* AppDelegate.swift */; };
 		AC3D436B242A211D00B108EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D436A242A211D00B108EF /* SceneDelegate.swift */; };
 		AC3D436D242A211D00B108EF /* ArtObjectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D436C242A211D00B108EF /* ArtObjectsController.swift */; };
@@ -20,6 +22,8 @@
 		AC3D4388242A42DC00B108EF /* Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3D4381242A42DC00B108EF /* Services.framework */; };
 		AC3D4389242A42DC00B108EF /* Services.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC3D4381242A42DC00B108EF /* Services.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC3D4390242A431B00B108EF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D438F242A431B00B108EF /* APIService.swift */; };
+		AC4533142430D8DC0021D129 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AC4533132430D8DC0021D129 /* Kingfisher */; };
+		AC45331724310C530021D129 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = AC45331624310C530021D129 /* SDWebImage */; };
 		AC69D085242CF49000183748 /* ArtObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC69D084242CF49000183748 /* ArtObject.swift */; };
 		AC7CC23F242B9B7F00BFD554 /* ArtObjectsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7CC23E242B9B7F00BFD554 /* ArtObjectsFactory.swift */; };
 		AC7CC246242BA5F300BFD554 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7CC245242BA5F300BFD554 /* DataService.swift */; };
@@ -29,6 +33,17 @@
 		ACAC8FA6242D0D7E00631283 /* ArtObjectDetailsParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAC8FA5242D0D7E00631283 /* ArtObjectDetailsParameters.swift */; };
 		ACCA7B23242B7B480061AB4D /* ArtObjectsParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA7B22242B7B480061AB4D /* ArtObjectsParameters.swift */; };
 		ACCA7B26242B9A5B0061AB4D /* ArtObjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA7B25242B9A5B0061AB4D /* ArtObjectsViewModel.swift */; };
+		ACDCD175242E5CA800E766C1 /* APIRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDCD174242E5CA800E766C1 /* APIRequestor.swift */; };
+		ACDCD178242E7AB000E766C1 /* ArtObjectViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDCD177242E7AB000E766C1 /* ArtObjectViewProtocol.swift */; };
+		ACDCD17B242E825000E766C1 /* WelcomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDCD17A242E825000E766C1 /* WelcomeFactory.swift */; };
+		ACDCD17D242E826100E766C1 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDCD17C242E826100E766C1 /* WelcomeViewModel.swift */; };
+		ACDCD17F242E827500E766C1 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDCD17E242E827500E766C1 /* WelcomeController.swift */; };
+		ACEA32A2242FC17E00E79FC9 /* UIStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = ACEA32A0242FC17E00E79FC9 /* UIStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ACEA32A5242FC17E00E79FC9 /* UIStyle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEA329E242FC17E00E79FC9 /* UIStyle.framework */; };
+		ACEA32A6242FC17E00E79FC9 /* UIStyle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ACEA329E242FC17E00E79FC9 /* UIStyle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ACEA32AB242FC1A300E79FC9 /* UIStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEA32AA242FC1A300E79FC9 /* UIStyle.swift */; };
+		ACEA32AE242FE54A00E79FC9 /* RMError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEA32AD242FE54A00E79FC9 /* RMError.swift */; };
+		ACFFBE9F2431229400875FDF /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFFBE9E2431229400875FDF /* ArrayExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +54,13 @@
 			remoteGlobalIDString = AC3D4380242A42DC00B108EF;
 			remoteInfo = Services;
 		};
+		ACEA32A3242FC17E00E79FC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC3D435D242A211D00B108EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACEA329D242FC17E00E79FC9;
+			remoteInfo = UIStyle;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,6 +70,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				ACEA32A6242FC17E00E79FC9 /* UIStyle.framework in Embed Frameworks */,
 				AC3D4389242A42DC00B108EF /* Services.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -60,6 +83,8 @@
 		AC0DCBC1242CCCA900EE80F0 /* ArtObjectDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectDetailsViewModel.swift; sourceTree = "<group>"; };
 		AC0DCBC3242CCCB900EE80F0 /* ArtObjectDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectDetailsController.swift; sourceTree = "<group>"; };
 		AC1588B8242E093600DCE5E6 /* ArtObjectDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectDetailsResponse.swift; sourceTree = "<group>"; };
+		AC1588BA242E27D600DCE5E6 /* ArtObjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectCollectionViewCell.swift; sourceTree = "<group>"; };
+		AC1588BD242E298A00DCE5E6 /* UICollectionViewCell+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Identifier.swift"; sourceTree = "<group>"; };
 		AC3D4365242A211D00B108EF /* Rijksmuseum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rijksmuseum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3D4368242A211D00B108EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC3D436A242A211D00B108EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +105,17 @@
 		ACAC8FA5242D0D7E00631283 /* ArtObjectDetailsParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectDetailsParameters.swift; sourceTree = "<group>"; };
 		ACCA7B22242B7B480061AB4D /* ArtObjectsParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectsParameters.swift; sourceTree = "<group>"; };
 		ACCA7B25242B9A5B0061AB4D /* ArtObjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectsViewModel.swift; sourceTree = "<group>"; };
+		ACDCD174242E5CA800E766C1 /* APIRequestor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestor.swift; sourceTree = "<group>"; };
+		ACDCD177242E7AB000E766C1 /* ArtObjectViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObjectViewProtocol.swift; sourceTree = "<group>"; };
+		ACDCD17A242E825000E766C1 /* WelcomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeFactory.swift; sourceTree = "<group>"; };
+		ACDCD17C242E826100E766C1 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		ACDCD17E242E827500E766C1 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
+		ACEA329E242FC17E00E79FC9 /* UIStyle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIStyle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACEA32A0242FC17E00E79FC9 /* UIStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIStyle.h; sourceTree = "<group>"; };
+		ACEA32A1242FC17E00E79FC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACEA32AA242FC1A300E79FC9 /* UIStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyle.swift; sourceTree = "<group>"; };
+		ACEA32AD242FE54A00E79FC9 /* RMError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMError.swift; sourceTree = "<group>"; };
+		ACFFBE9E2431229400875FDF /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +123,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC4533142430D8DC0021D129 /* Kingfisher in Frameworks */,
+				ACEA32A5242FC17E00E79FC9 /* UIStyle.framework in Frameworks */,
+				AC45331724310C530021D129 /* SDWebImage in Frameworks */,
 				AC3D4388242A42DC00B108EF /* Services.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,16 +137,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ACEA329B242FC17E00E79FC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		16D3417C349759556D0A735F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		AC0DCBBE242CCC5C00EE80F0 /* ArtObjectDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,13 +157,21 @@
 			path = ArtObjectDetails;
 			sourceTree = "<group>";
 		};
+		AC1588BC242E291B00DCE5E6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AC1588BD242E298A00DCE5E6 /* UICollectionViewCell+Identifier.swift */,
+				ACFFBE9E2431229400875FDF /* ArrayExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		AC3D435C242A211D00B108EF = {
 			isa = PBXGroup;
 			children = (
 				AC3D4367242A211D00B108EF /* Rijksmuseum */,
-				AC3D4382242A42DC00B108EF /* Services */,
+				ACEA3287242FC09D00E79FC9 /* EmbeddedFrameworks */,
 				AC3D4366242A211D00B108EF /* Products */,
-				16D3417C349759556D0A735F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,6 +180,7 @@
 			children = (
 				AC3D4365242A211D00B108EF /* Rijksmuseum.app */,
 				AC3D4381242A42DC00B108EF /* Services.framework */,
+				ACEA329E242FC17E00E79FC9 /* UIStyle.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,6 +192,9 @@
 				AC3D436A242A211D00B108EF /* SceneDelegate.swift */,
 				AC7CC247242BA6C500BFD554 /* AppContext.swift */,
 				ACCA7B21242B48250061AB4D /* Screens */,
+				ACDCD176242E7A8C00E766C1 /* UIComponents */,
+				ACEA32AC242FE53700E79FC9 /* RMError */,
+				AC1588BC242E291B00DCE5E6 /* Extensions */,
 				AC7CC240242B9F3100BFD554 /* Resources */,
 			);
 			path = Rijksmuseum;
@@ -163,8 +214,9 @@
 		AC3D438E242A42F800B108EF /* APIService */ = {
 			isa = PBXGroup;
 			children = (
-				AC3D438F242A431B00B108EF /* APIService.swift */,
 				AC9A6BAF242A52AC00E9E55D /* APIError.swift */,
+				AC3D438F242A431B00B108EF /* APIService.swift */,
+				ACDCD174242E5CA800E766C1 /* APIRequestor.swift */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -219,6 +271,7 @@
 		ACCA7B21242B48250061AB4D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				ACDCD179242E822700E766C1 /* Welcome */,
 				ACCA7B24242B82FE0061AB4D /* ArtObjects */,
 				AC0DCBBE242CCC5C00EE80F0 /* ArtObjectDetails */,
 			);
@@ -231,8 +284,54 @@
 				AC7CC23E242B9B7F00BFD554 /* ArtObjectsFactory.swift */,
 				ACCA7B25242B9A5B0061AB4D /* ArtObjectsViewModel.swift */,
 				AC3D436C242A211D00B108EF /* ArtObjectsController.swift */,
+				AC1588BA242E27D600DCE5E6 /* ArtObjectCollectionViewCell.swift */,
 			);
 			path = ArtObjects;
+			sourceTree = "<group>";
+		};
+		ACDCD176242E7A8C00E766C1 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				ACDCD177242E7AB000E766C1 /* ArtObjectViewProtocol.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		ACDCD179242E822700E766C1 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				ACDCD17A242E825000E766C1 /* WelcomeFactory.swift */,
+				ACDCD17C242E826100E766C1 /* WelcomeViewModel.swift */,
+				ACDCD17E242E827500E766C1 /* WelcomeController.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		ACEA3287242FC09D00E79FC9 /* EmbeddedFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC3D4382242A42DC00B108EF /* Services */,
+				ACEA329F242FC17E00E79FC9 /* UIStyle */,
+			);
+			path = EmbeddedFrameworks;
+			sourceTree = "<group>";
+		};
+		ACEA329F242FC17E00E79FC9 /* UIStyle */ = {
+			isa = PBXGroup;
+			children = (
+				ACEA32A0242FC17E00E79FC9 /* UIStyle.h */,
+				ACEA32A1242FC17E00E79FC9 /* Info.plist */,
+				ACEA32AA242FC1A300E79FC9 /* UIStyle.swift */,
+			);
+			path = UIStyle;
+			sourceTree = "<group>";
+		};
+		ACEA32AC242FE53700E79FC9 /* RMError */ = {
+			isa = PBXGroup;
+			children = (
+				ACEA32AD242FE54A00E79FC9 /* RMError.swift */,
+			);
+			path = RMError;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +342,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC3D4385242A42DC00B108EF /* Services.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEA3299242FC17E00E79FC9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACEA32A2242FC17E00E79FC9 /* UIStyle.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,8 +369,13 @@
 			);
 			dependencies = (
 				AC3D4387242A42DC00B108EF /* PBXTargetDependency */,
+				ACEA32A4242FC17E00E79FC9 /* PBXTargetDependency */,
 			);
 			name = Rijksmuseum;
+			packageProductDependencies = (
+				AC4533132430D8DC0021D129 /* Kingfisher */,
+				AC45331624310C530021D129 /* SDWebImage */,
+			);
 			productName = Rijksmuseum;
 			productReference = AC3D4365242A211D00B108EF /* Rijksmuseum.app */;
 			productType = "com.apple.product-type.application";
@@ -286,6 +398,24 @@
 			productReference = AC3D4381242A42DC00B108EF /* Services.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		ACEA329D242FC17E00E79FC9 /* UIStyle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACEA32A7242FC17E00E79FC9 /* Build configuration list for PBXNativeTarget "UIStyle" */;
+			buildPhases = (
+				ACEA3299242FC17E00E79FC9 /* Headers */,
+				ACEA329A242FC17E00E79FC9 /* Sources */,
+				ACEA329B242FC17E00E79FC9 /* Frameworks */,
+				ACEA329C242FC17E00E79FC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UIStyle;
+			productName = UIStyle;
+			productReference = ACEA329E242FC17E00E79FC9 /* UIStyle.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -303,6 +433,10 @@
 						CreatedOnToolsVersion = 11.3.1;
 						LastSwiftMigration = 1130;
 					};
+					ACEA329D242FC17E00E79FC9 = {
+						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
+					};
 				};
 			};
 			buildConfigurationList = AC3D4360242A211D00B108EF /* Build configuration list for PBXProject "Rijksmuseum" */;
@@ -314,12 +448,17 @@
 				Base,
 			);
 			mainGroup = AC3D435C242A211D00B108EF;
+			packageReferences = (
+				AC4533122430D8DC0021D129 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				AC45331524310C530021D129 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = AC3D4366242A211D00B108EF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				AC3D4364242A211D00B108EF /* Rijksmuseum */,
 				AC3D4380242A42DC00B108EF /* Services */,
+				ACEA329D242FC17E00E79FC9 /* UIStyle */,
 			);
 		};
 /* End PBXProject section */
@@ -341,6 +480,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ACEA329C242FC17E00E79FC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -349,12 +495,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACCA7B26242B9A5B0061AB4D /* ArtObjectsViewModel.swift in Sources */,
+				ACEA32AE242FE54A00E79FC9 /* RMError.swift in Sources */,
+				ACDCD17F242E827500E766C1 /* WelcomeController.swift in Sources */,
+				ACDCD178242E7AB000E766C1 /* ArtObjectViewProtocol.swift in Sources */,
 				AC0DCBC4242CCCB900EE80F0 /* ArtObjectDetailsController.swift in Sources */,
+				AC1588BE242E298A00DCE5E6 /* UICollectionViewCell+Identifier.swift in Sources */,
 				AC7CC248242BA6C500BFD554 /* AppContext.swift in Sources */,
+				ACDCD17D242E826100E766C1 /* WelcomeViewModel.swift in Sources */,
 				AC3D436D242A211D00B108EF /* ArtObjectsController.swift in Sources */,
+				ACDCD17B242E825000E766C1 /* WelcomeFactory.swift in Sources */,
 				AC0DCBC2242CCCA900EE80F0 /* ArtObjectDetailsViewModel.swift in Sources */,
 				AC3D4369242A211D00B108EF /* AppDelegate.swift in Sources */,
 				AC3D436B242A211D00B108EF /* SceneDelegate.swift in Sources */,
+				ACFFBE9F2431229400875FDF /* ArrayExtensions.swift in Sources */,
+				AC1588BB242E27D600DCE5E6 /* ArtObjectCollectionViewCell.swift in Sources */,
 				AC0DCBC0242CCC8800EE80F0 /* ArtObjectDetailsFactory.swift in Sources */,
 				AC7CC23F242B9B7F00BFD554 /* ArtObjectsFactory.swift in Sources */,
 			);
@@ -364,6 +518,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACDCD175242E5CA800E766C1 /* APIRequestor.swift in Sources */,
 				AC8D16DB242E048400CBDA61 /* ArtObjectsResponse.swift in Sources */,
 				ACAC8FA6242D0D7E00631283 /* ArtObjectDetailsParameters.swift in Sources */,
 				AC3D4390242A431B00B108EF /* APIService.swift in Sources */,
@@ -375,6 +530,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ACEA329A242FC17E00E79FC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACEA32AB242FC1A300E79FC9 /* UIStyle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -382,6 +545,11 @@
 			isa = PBXTargetDependency;
 			target = AC3D4380242A42DC00B108EF /* Services */;
 			targetProxy = AC3D4386242A42DC00B108EF /* PBXContainerItemProxy */;
+		};
+		ACEA32A4242FC17E00E79FC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACEA329D242FC17E00E79FC9 /* UIStyle */;
+			targetProxy = ACEA32A3242FC17E00E79FC9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -516,15 +684,18 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AHH26Q3X85;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Rijksmuseum/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.TheNightWatch.Rijksmuseum;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -535,15 +706,18 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AHH26Q3X85;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Rijksmuseum/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.TheNightWatch.Rijksmuseum;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -559,7 +733,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Services/Info.plist;
+				INFOPLIST_FILE = EmbeddedFrameworks/Services/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -587,7 +761,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Services/Info.plist;
+				INFOPLIST_FILE = EmbeddedFrameworks/Services/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -595,6 +769,65 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.TheNightWatch.Services;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		ACEA32A8242FC17E00E79FC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = AHH26Q3X85;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EmbeddedFrameworks/UIStyle/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.TheNightWatch.UIStyle;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		ACEA32A9242FC17E00E79FC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = AHH26Q3X85;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EmbeddedFrameworks/UIStyle/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.TheNightWatch.UIStyle;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -634,7 +867,48 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		ACEA32A7242FC17E00E79FC9 /* Build configuration list for PBXNativeTarget "UIStyle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACEA32A8242FC17E00E79FC9 /* Debug */,
+				ACEA32A9242FC17E00E79FC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AC4533122430D8DC0021D129 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.13.2;
+			};
+		};
+		AC45331524310C530021D129 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AC4533132430D8DC0021D129 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC4533122430D8DC0021D129 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		AC45331624310C530021D129 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC45331524310C530021D129 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AC3D435D242A211D00B108EF /* Project object */;
 }

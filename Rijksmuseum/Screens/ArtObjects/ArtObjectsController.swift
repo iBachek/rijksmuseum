@@ -16,17 +16,20 @@ final class ArtObjectsController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.prefetchDataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
-        collectionView.backgroundColor = .red
+        collectionView.register(ArtObjectCollectionViewCell.self, forCellWithReuseIdentifier: ArtObjectCollectionViewCell.identifier)
+        collectionView.automaticallyAdjustsScrollIndicatorInsets = true
+        collectionView.backgroundColor = .clear
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
 
         return collectionView
     }()
 
-    let viewModel: ArtObjectsViewModel
+    let viewModel: ArtObjectsViewModelProtocol
 
-    init(viewModel: ArtObjectsViewModel) {
+    init(viewModel: ArtObjectsViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        self.viewModel.delegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -47,16 +50,34 @@ extension ArtObjectsController {
     }
 }
 
+// MARK: - ArtObjectsViewModelDelegate
+extension ArtObjectsController: ArtObjectsViewModelDelegate {
+
+    func reloadDataSource() {
+        collectionView.reloadData()
+    }
+}
+
 // MARK: - UICollectionViewDataSource
 extension ArtObjectsController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return viewModel.itemsCount()
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
-        return myCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtObjectCollectionViewCell.identifier, for: indexPath)
+        guard let artObjectCell = cell as? ArtObjectCollectionViewCell else {
+            return cell
+        }
+
+        let configured = viewModel.configure(view: artObjectCell, indexPath: indexPath)
+        if !configured {
+            artObjectCell.truncate()
+            loadArtObject(at: indexPath)
+        }
+
+        return artObjectCell
     }
 }
 
@@ -65,15 +86,56 @@ extension ArtObjectsController: UICollectionViewDelegate {
     // TODO
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
+extension ArtObjectsController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+}
+
 // MARK: - UICollectionViewDataSourcePrefetching
 extension ArtObjectsController: UICollectionViewDataSourcePrefetching {
 
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        // TODO
+        for indexPath in indexPaths {
+            loadArtObject(at: indexPath)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
-        // TODO
+        for indexPath in indexPaths {
+            viewModel.cancelLoadArtObject(at: indexPath)
+        }
+    }
+}
+
+// MARK: - Utility
+fileprivate extension ArtObjectsController {
+    func loadArtObject(at indexPath: IndexPath) {
+        viewModel.loadArtObject(at: indexPath) { [weak self] (result: Result<Void, RMError>) in
+            switch result {
+            case .success:
+                self?.reloadItemIfNeeded(itemIndexPath: indexPath)
+
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
+    func reloadItemIfNeeded(itemIndexPath indexPath: IndexPath) {
+        guard collectionView.indexPathsForVisibleItems.contains(indexPath) else {
+            return
+        }
+
+        collectionView.performBatchUpdates({ [weak self] in
+            self?.collectionView.reloadItems(at: [indexPath])
+        })
     }
 }
 

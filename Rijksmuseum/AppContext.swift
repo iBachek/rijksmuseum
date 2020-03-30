@@ -12,7 +12,7 @@ struct AppContext: AppContextHolderProtocol {
     let dataService: DataServiceProtocol
 
     static func makeContext() -> AppContext {
-        let apiService = APIService(apiKey: Constants.rijksmuseumApiKey, language: Constants.language, queue: DispatchQueue.main)
+        let apiService = APIService(apiKey: Constants.rijksmuseumApiKey, language: Constants.language)
         let dataService = DataService(apiService: apiService, queue: DispatchQueue.main)
 
         return AppContext(dataService: dataService)
