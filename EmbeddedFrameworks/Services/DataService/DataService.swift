@@ -5,23 +5,29 @@ public protocol DataServiceHolderProtocol {
 }
 
 public protocol DataServiceProtocol: AnyObject {
-    func getArtObjects(requestIdentifier: String, parameters: ArtObjectsParameters, completion: @escaping (Result<ArtObjectsResponse, APIError>) -> Void)
-    func getArtObjectDetails(parameters: ArtObjectDetailsParameters, completion: @escaping (Result<ArtObject, APIError>) -> Void)
+    func getArtObjects(requestIdentifier: String, parameters: ArtObjectsParameters, completion: @escaping (Result<ArtObjectsResponse, DSError>) -> Void)
+    func getArtObjectDetails(parameters: ArtObjectDetailsParameters, completion: @escaping (Result<ArtObject, DSError>) -> Void)
     func cancelLoadArtObject(requestIdentifier: String)
 }
 
 public final class DataService: DataServiceProtocol {
 
     fileprivate let apiService: APIServiceProtocol
+    fileprivate let operationQueue: OperationQueue
     fileprivate let queue: DispatchQueue
 
     public init(apiService: APIServiceProtocol, queue: DispatchQueue) {
         self.apiService = apiService
         self.queue = queue
+
+        self.operationQueue = OperationQueue()
+        operationQueue.maxConcurrentOperationCount = 3
     }
 
-    public func getArtObjects(requestIdentifier: String, parameters: ArtObjectsParameters, completion: @escaping (Result<ArtObjectsResponse, APIError>) -> Void) {
-        apiService.getCollections(using: parameters, identifier: requestIdentifier) { [weak self] (result: Result<Data, APIError>) in
+    public func getArtObjects(requestIdentifier: String, parameters: ArtObjectsParameters, completion: @escaping (Result<ArtObjectsResponse, DSError>) -> Void) {
+        let operation = apiService.collectionsOperation(using: parameters)
+        operation.name = requestIdentifier
+        operation.completion = { [weak self] (result: Result<Data, APIError>) in
             guard let self = self else {
                 return
             }
@@ -34,19 +40,27 @@ public final class DataService: DataServiceProtocol {
                         completion(Result.success(response))
                     }
                 } catch let error {
-//                    print(error)
+                    self.queue.async {
+                        // .typeMismatch, .valueNotFound, .keyNotFound, .dataCorrupted
+                        completion(Result.failure(DSError.decodingError(error)))
+                    }
                 }
 
             case .failure(let error):
                 self.queue.async {
-                    completion(Result.failure(error))
+                    completion(Result.failure(DSError.apiError(error)))
                 }
             }
         }
+
+        operationQueue.addOperation(operation)
     }
 
-    public func getArtObjectDetails(parameters: ArtObjectDetailsParameters, completion: @escaping (Result<ArtObject, APIError>) -> Void) {
-        apiService.getItemDetails(itemID: parameters.artObject.id) { [weak self] (result: Result<Data, APIError>) in
+    public func getArtObjectDetails(parameters: ArtObjectDetailsParameters, completion: @escaping (Result<ArtObject, DSError>) -> Void) {
+        let operation = apiService.itemDetailsOperation(itemID: parameters.artObject.id, parameters: parameters)
+        operation.name = parameters.artObject.id
+        operation.queuePriority = .veryHigh
+        operation.completion = { [weak self] (result: Result<Data, APIError>) in
             guard let self = self else {
                 return
             }
@@ -59,18 +73,25 @@ public final class DataService: DataServiceProtocol {
                         completion(Result.success(response.artObject))
                     }
                 } catch let error {
-//                    print(error)
+                    self.queue.async {
+                        // .typeMismatch, .valueNotFound, .keyNotFound, .dataCorrupted
+                        completion(Result.failure(DSError.decodingError(error)))
+                    }
                 }
 
             case .failure(let error):
                 self.queue.async {
-                    completion(Result.failure(error))
+                    completion(Result.failure(DSError.apiError(error)))
                 }
             }
         }
+
+        operationQueue.addOperation(operation)
     }
 
     public func cancelLoadArtObject(requestIdentifier: String) {
-        apiService.cancelRequest(with: requestIdentifier)
+        if let operation = operationQueue.operations.first(where: { $0.name == requestIdentifier }) {
+            operation.cancel()
+        }
     }
 }

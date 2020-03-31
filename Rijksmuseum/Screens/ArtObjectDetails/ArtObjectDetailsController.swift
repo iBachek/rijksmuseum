@@ -1,6 +1,7 @@
 import UIKit
 import UIStyle
 import Kingfisher
+import Services
 
 // MARK: - Variables
 final class ArtObjectDetailsController: UIViewController {
@@ -51,9 +52,11 @@ final class ArtObjectDetailsController: UIViewController {
     }()
 
     let viewModel: ArtObjectDetailsViewModelProtocol
+    let alertService: AlertServiceProtocol
 
-    init(viewModel: ArtObjectDetailsViewModelProtocol) {
+    init(viewModel: ArtObjectDetailsViewModelProtocol, alertService: AlertServiceProtocol) {
         self.viewModel = viewModel
+        self.alertService = alertService
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -85,8 +88,7 @@ extension ArtObjectDetailsController {
                 break
 
             case .failure(let error):
-//                print(error)
-                break
+                self?.alertService.showMessage(error.description, viewController: self)
             }
         }
     }

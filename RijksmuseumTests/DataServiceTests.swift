@@ -11,29 +11,31 @@ class DataServiceTests: XCTestCase {
         dataService.getArtObjects(requestIdentifier: identifier, parameters: ArtObjectsParameters(offset: 0, limit: 1), completion: { _ in })
 
         XCTAssertTrue(apiService.isGetCollectionsCalled)
-        XCTAssertEqual(apiService.getCollectionsRequestIdentifier, identifier)
     }
 }
 
 final class APIServiceMock: APIServiceProtocol {
 
     var isGetCollectionsCalled = false
-    var getCollectionsRequestIdentifier: String?
-
-    func getCollections(using parameters: APIServiceParametrsProtocol, identifier: String, completion: @escaping (Result<Data, APIError>) -> Void) {
+    func collectionsOperation(using parameters: APIServiceParametrsProtocol) -> APIOperationProtocol {
         isGetCollectionsCalled = true
-        getCollectionsRequestIdentifier = identifier
+        return APIOperationMock(requestParameters: parameters)
     }
 
-    func getItemDetails(itemID: String, completion: @escaping (Result<Data, APIError>) -> Void) {
-
+    func itemDetailsOperation(itemID: String, parameters: APIServiceParametrsProtocol) -> APIOperationProtocol {
+        return APIOperationMock(requestParameters: parameters)
     }
+}
 
-    func cancelRequest(with identifier: String) {
+final class APIOperationMock: Operation, APIOperationProtocol {
 
-    }
+    var path = "path"
+    var httpMethod = HTTPMethod.GET
+    let requestParameters: APIServiceParametrsProtocol
+    var completion: ((Result<Data, APIError>) -> Void)?
 
-    func cancelAllRequests() {
-
+    init(requestParameters: APIServiceParametrsProtocol) {
+        self.requestParameters = requestParameters
+        super.init()
     }
 }

@@ -5,7 +5,7 @@ final class ArtObjectDetailsFactory {
 
     func make(requestParameters: ArtObjectDetailsParameters) -> UIViewController {
         let viewModel = ArtObjectDetailsViewModel(requestParameters: requestParameters, context: AppDelegate.sharedInstance.context)
-        let controller = ArtObjectDetailsController(viewModel: viewModel)
+        let controller = ArtObjectDetailsController(viewModel: viewModel, alertService: AppDelegate.sharedInstance.context.alertService)
 
         return controller
     }

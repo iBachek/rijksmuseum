@@ -28,15 +28,29 @@ final class WelcomeController: UIViewController {
         return label
     }()
 
-    fileprivate lazy var enjoyButton: UIButton = {
+    fileprivate lazy var collectionViewButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("Enjoy!", for: .normal)
+        button.setTitle("UICollectionView", for: .normal)
         button.titleLabel?.font = UIStyle.Font.medium(size: 23)
         button.setTitleColor(.black, for: .normal)
         button.setTitleColor(UIStyle.Color.thinGray, for: .highlighted)
-        button.addTarget(self, action: #selector(enjoyButtonAction(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(collectionViewButtonAction(_:)), for: .touchUpInside)
         button.backgroundColor = UIStyle.Color.blue
-        button.layer.cornerRadius = Constants.enjoyButtonHeight / 2
+        button.layer.cornerRadius = Constants.actionButtonHeight / 2
+        button.translatesAutoresizingMaskIntoConstraints = false
+
+        return button
+    }()
+
+    fileprivate lazy var tableViewButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setTitle("UITableView", for: .normal)
+        button.titleLabel?.font = UIStyle.Font.medium(size: 23)
+        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(UIStyle.Color.thinGray, for: .highlighted)
+        button.addTarget(self, action: #selector(tableViewButtonAction(_:)), for: .touchUpInside)
+        button.backgroundColor = UIStyle.Color.blue
+        button.layer.cornerRadius = Constants.actionButtonHeight / 2
         button.translatesAutoresizingMaskIntoConstraints = false
 
         return button
@@ -64,19 +78,27 @@ extension WelcomeController {
         view.backgroundColor = .white
         view.addSubview(titleLabel)
         view.addSubview(descriptionLabel)
-        view.addSubview(enjoyButton)
-        NSLayoutConstraint.activate(titleLabelConstraints + descriptionLabelConstraints + enjoyButtonConstraints)
+        view.addSubview(collectionViewButton)
+        view.addSubview(tableViewButton)
+        NSLayoutConstraint.activate(titleLabelConstraints + descriptionLabelConstraints + collectionViewButtonConstraints + tableViewButtonConstraints)
     }
 }
 
 // MARK: - Actions
 fileprivate extension WelcomeController {
 
-    @objc func enjoyButtonAction(_ sender: UIButton) {
+    @objc func collectionViewButtonAction(_ sender: UIButton) {
 
-        // Display Rijksmuseum collections, back actions disabled
+        // Display Rijksmuseum collections using UICollectionView
         let artObjectsFactory = ArtObjectsFactory()
-        navigationController?.setViewControllers([artObjectsFactory.make()], animated: true)
+        navigationController?.pushViewController(artObjectsFactory.makeCollectionRepresentation(), animated: true)
+    }
+
+    @objc func tableViewButtonAction(_ sender: UIButton) {
+
+        // Display Rijksmuseum collections using UITableView
+        let artObjectsFactory = ArtObjectsFactory()
+        navigationController?.pushViewController(artObjectsFactory.makeTableRepresentation(), animated: true)
     }
 }
 
@@ -84,7 +106,7 @@ fileprivate extension WelcomeController {
 fileprivate extension WelcomeController {
 
     enum Constants {
-        static let enjoyButtonHeight: CGFloat = 60
+        static let actionButtonHeight: CGFloat = 60
     }
 
     var titleLabelConstraints: [NSLayoutConstraint] {
@@ -103,12 +125,21 @@ fileprivate extension WelcomeController {
         ]
     }
 
-    var enjoyButtonConstraints: [NSLayoutConstraint] {
+    var collectionViewButtonConstraints: [NSLayoutConstraint] {
         return [
-            enjoyButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24),
-            enjoyButton.heightAnchor.constraint(equalToConstant: Constants.enjoyButtonHeight),
-            enjoyButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
-            enjoyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32)
+            collectionViewButton.bottomAnchor.constraint(equalTo: tableViewButton.topAnchor, constant: -24),
+            collectionViewButton.heightAnchor.constraint(equalToConstant: Constants.actionButtonHeight),
+            collectionViewButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+            collectionViewButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32)
+        ]
+    }
+
+    var tableViewButtonConstraints: [NSLayoutConstraint] {
+        return [
+            tableViewButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24),
+            tableViewButton.heightAnchor.constraint(equalToConstant: Constants.actionButtonHeight),
+            tableViewButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+            tableViewButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32)
         ]
     }
 }

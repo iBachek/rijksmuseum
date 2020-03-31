@@ -15,7 +15,8 @@ class APIServiceTests: XCTestCase {
     func testGetCollections() throws {
         let dictionary = ["key": "value"]
         let parameters = APIServiceParametrsMock(parameters: dictionary)
-        let _ = apiService.getCollections(using: parameters, identifier: "identifier", completion: { _ in })
+        let operation = apiService.collectionsOperation(using: parameters)
+        operation.start()
 
         XCTAssertEqual(apiRequestor.path, "/collection")
         XCTAssertEqual(apiRequestor.method, HTTPMethod.GET)

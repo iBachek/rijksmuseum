@@ -3,9 +3,16 @@ import Services
 
 final class ArtObjectsFactory {
 
-    func make() -> UIViewController {
+    func makeCollectionRepresentation() -> UIViewController {
         let viewModel = ArtObjectsViewModel(context: AppDelegate.sharedInstance.context)
-        let controller = ArtObjectsController(viewModel: viewModel)
+        let controller = ArtObjectsCollectionController(viewModel: viewModel, alertService: AppDelegate.sharedInstance.context.alertService)
+
+        return controller
+    }
+
+    func makeTableRepresentation() -> UIViewController {
+        let viewModel = ArtObjectsViewModel(context: AppDelegate.sharedInstance.context)
+        let controller = ArtObjectsTableController(viewModel: viewModel, alertService: AppDelegate.sharedInstance.context.alertService)
 
         return controller
     }

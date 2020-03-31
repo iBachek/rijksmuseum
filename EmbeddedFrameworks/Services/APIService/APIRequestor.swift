@@ -58,9 +58,18 @@ public final class APIRequestor: APIRequestorProtocol {
 
         let request = URLRequest(url: url)
         let dataTask = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-            if let error = error {
-//                print("ERROR: \(error)")
-                completion(Result.failure(APIError.invalidRequest))
+            if let error = error as NSError? {
+                switch error.code {
+                case -999:
+                    completion(Result.failure(APIError.canceled))
+
+                case -1009:
+                    completion(Result.failure(APIError.noInternet))
+
+                default:
+                    completion(Result.failure(APIError.invalidResponse))
+                }
+
                 return
             }
 
@@ -72,7 +81,6 @@ public final class APIRequestor: APIRequestorProtocol {
             completion(Result.success(data))
         }
 
-        dataTask.resume()
         return dataTask
     }
 }

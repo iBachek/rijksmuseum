@@ -1,17 +1,12 @@
 import Services
 
 protocol ArtObjectsViewModelProtocol: AnyObject {
-    var delegate: ArtObjectsViewModelDelegate? { get set }
-
     func itemsCount(completion: @escaping (Result<Int, RMError>) -> Void)
     func loadArtObject(at indexPath: IndexPath, completion: @escaping (Result<Void, RMError>) -> Void)
     func cancelLoadArtObject(at indexPath: IndexPath)
     @discardableResult func configure(view: ArtObjectViewProtocol, indexPath: IndexPath) -> Bool
     func artObjectDetailsParameters(at indexPath: IndexPath) -> ArtObjectDetailsParameters?
-}
-
-protocol ArtObjectsViewModelDelegate: AnyObject {
-    func reloadDataSource()
+    func didReceiveMemoryWarning()
 }
 
 final class ArtObjectsViewModel: ArtObjectsViewModelProtocol {
@@ -19,7 +14,6 @@ final class ArtObjectsViewModel: ArtObjectsViewModelProtocol {
     typealias Context = DataServiceHolderProtocol
     let context: Context
     var artObjects: [ArtObject?]
-    var delegate: ArtObjectsViewModelDelegate?
 
     init(context: DataServiceHolderProtocol) {
         self.context = context
@@ -29,36 +23,33 @@ final class ArtObjectsViewModel: ArtObjectsViewModelProtocol {
     func itemsCount(completion: @escaping (Result<Int, RMError>) -> Void) {
         let identifier = "itemsCount"
         let requestParameters = ArtObjectsParameters(offset: 0, limit: 20)
-        context.dataService.getArtObjects(requestIdentifier: identifier, parameters: requestParameters) { [weak self] (result: Result<ArtObjectsResponse, APIError>) in
+        context.dataService.getArtObjects(requestIdentifier: identifier, parameters: requestParameters) { [weak self] (result: Result<ArtObjectsResponse, DSError>) in
             switch result {
             case .success(let response):
                 self?.artObjects = [ArtObject?](repeating: nil, count: response.artObjectsCount)
                 completion(Result.success(response.artObjectsCount))
 
             case .failure(let error):
-//                print(error)
-                completion(Result.failure(RMError.somethingWrong))
+                completion(Result.failure(RMError.dataService(error)))
             }
         }
     }
 
     func loadArtObject(at indexPath: IndexPath, completion: @escaping (Result<Void, RMError>) -> Void) {
         guard artObjects[indexPath.item] == nil else {
-            completion(Result.success(()))
             return
         }
 
         let identifier = "\(indexPath.item)"
         let requestParameters = ArtObjectsParameters(offset: indexPath.item, limit: 1)
-        context.dataService.getArtObjects(requestIdentifier: identifier, parameters: requestParameters) { [weak self] (result: Result<ArtObjectsResponse, APIError>) in
+        context.dataService.getArtObjects(requestIdentifier: identifier, parameters: requestParameters) { [weak self] (result: Result<ArtObjectsResponse, DSError>) in
             switch result {
             case .success(let response):
                 self?.artObjects[indexPath.item] = response.artObjects.first
                 completion(Result.success(()))
 
             case .failure(let error):
-//                print(error)
-                completion(Result.failure(RMError.somethingWrong))
+                completion(Result.failure(RMError.dataService(error)))
             }
         }
     }
@@ -84,5 +75,10 @@ final class ArtObjectsViewModel: ArtObjectsViewModelProtocol {
         }
 
         return ArtObjectDetailsParameters(artObject: artObject)
+    }
+
+    func didReceiveMemoryWarning() {
+        let count = artObjects.count
+        artObjects = [ArtObject?](repeating: nil, count: count)
     }
 }

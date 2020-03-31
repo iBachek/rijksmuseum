@@ -1,17 +1,15 @@
 import UIKit
+import Kingfisher
+import Services
 
 // MARK: - Variables
-final class ArtObjectsController: UIViewController {
-
-    fileprivate lazy var collectionViewLayout: UICollectionViewLayout = {
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 60, height: 60)
-
-        return layout
-    }()
+final class ArtObjectsCollectionController: UIViewController {
 
     fileprivate lazy var collectionView: UICollectionView = {
+        let collectionViewLayout = UICollectionViewFlowLayout()
+        collectionViewLayout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+        collectionViewLayout.itemSize = CGSize(width: 60, height: 60)
+
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: collectionViewLayout)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -24,14 +22,21 @@ final class ArtObjectsController: UIViewController {
         return collectionView
     }()
 
+    fileprivate lazy var tableView: UITableView = {
+        let tableView = UITableView()
+
+        return tableView
+    }()
+
     let viewModel: ArtObjectsViewModelProtocol
+    let alertService: AlertServiceProtocol
     var numberOfItems: Int
 
-    init(viewModel: ArtObjectsViewModelProtocol) {
+    init(viewModel: ArtObjectsViewModelProtocol, alertService: AlertServiceProtocol) {
         self.viewModel = viewModel
+        self.alertService = alertService
         self.numberOfItems = 0
         super.init(nibName: nil, bundle: nil)
-        self.viewModel.delegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -40,7 +45,7 @@ final class ArtObjectsController: UIViewController {
 }
 
 // MARK: - ViewController life cycle
-extension ArtObjectsController {
+extension ArtObjectsCollectionController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,23 +62,20 @@ extension ArtObjectsController {
                 self?.collectionView.reloadData()
 
             case .failure(let error):
-//                print(error)
-                break
+                self?.alertService.showMessage(error.description, viewController: self)
             }
         }
     }
-}
 
-// MARK: - ArtObjectsViewModelDelegate
-extension ArtObjectsController: ArtObjectsViewModelDelegate {
-
-    func reloadDataSource() {
-        collectionView.reloadData()
+    override func didReceiveMemoryWarning() {
+        ImageCache.default.clearMemoryCache()
+        viewModel.didReceiveMemoryWarning()
+        super.didReceiveMemoryWarning()
     }
 }
 
 // MARK: - UICollectionViewDataSource
-extension ArtObjectsController: UICollectionViewDataSource {
+extension ArtObjectsCollectionController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numberOfItems
@@ -96,7 +98,7 @@ extension ArtObjectsController: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegate
-extension ArtObjectsController: UICollectionViewDelegate {
+extension ArtObjectsCollectionController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let parameters = viewModel.artObjectDetailsParameters(at: indexPath) else {
@@ -107,10 +109,20 @@ extension ArtObjectsController: UICollectionViewDelegate {
         let controller = artObjectDetailsFactory.make(requestParameters: parameters)
         present(controller, animated: true)
     }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        collectionView.reloadItems(at: collectionView.indexPathsForVisibleItems)
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            collectionView.reloadItems(at: collectionView.indexPathsForVisibleItems)
+        }
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension ArtObjectsController: UICollectionViewDelegateFlowLayout {
+extension ArtObjectsCollectionController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width)
@@ -126,7 +138,7 @@ extension ArtObjectsController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - UICollectionViewDataSourcePrefetching
-extension ArtObjectsController: UICollectionViewDataSourcePrefetching {
+extension ArtObjectsCollectionController: UICollectionViewDataSourcePrefetching {
 
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
@@ -142,7 +154,7 @@ extension ArtObjectsController: UICollectionViewDataSourcePrefetching {
 }
 
 // MARK: - Utility
-fileprivate extension ArtObjectsController {
+fileprivate extension ArtObjectsCollectionController {
     func loadArtObject(at indexPath: IndexPath) {
         viewModel.loadArtObject(at: indexPath) { [weak self] (result: Result<Void, RMError>) in
             switch result {
@@ -150,14 +162,17 @@ fileprivate extension ArtObjectsController {
                 self?.reloadItemIfNeeded(itemIndexPath: indexPath)
 
             case .failure(let error):
-//                print(error)
-                break
+                self?.alertService.showMessage(error.description, viewController: self)
             }
         }
     }
 
     func reloadItemIfNeeded(itemIndexPath indexPath: IndexPath) {
         guard collectionView.indexPathsForVisibleItems.contains(indexPath) else {
+            return
+        }
+
+        guard !collectionView.isDecelerating, !collectionView.isDragging else {
             return
         }
 
@@ -168,7 +183,7 @@ fileprivate extension ArtObjectsController {
 }
 
 // MARK: - Constraints
-fileprivate extension ArtObjectsController {
+fileprivate extension ArtObjectsCollectionController {
 
     enum Constants {
         static let sectionInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 20.0)

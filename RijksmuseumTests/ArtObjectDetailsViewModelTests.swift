@@ -70,11 +70,11 @@ class AppContextMock: DataServiceHolderProtocol {
 
 class DataServiceMock: DataServiceProtocol {
 
-    func getArtObjects(requestIdentifier: String, parameters: ArtObjectsParameters, completion: @escaping (Result<ArtObjectsResponse, APIError>) -> Void) {
+    func getArtObjects(requestIdentifier: String, parameters: ArtObjectsParameters, completion: @escaping (Result<ArtObjectsResponse, DSError>) -> Void) {
 
     }
 
-    func getArtObjectDetails(parameters: ArtObjectDetailsParameters, completion: @escaping (Result<ArtObject, APIError>) -> Void) {
+    func getArtObjectDetails(parameters: ArtObjectDetailsParameters, completion: @escaping (Result<ArtObject, DSError>) -> Void) {
 
     }
 

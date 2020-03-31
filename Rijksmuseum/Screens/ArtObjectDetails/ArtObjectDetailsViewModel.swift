@@ -19,7 +19,7 @@ final class ArtObjectDetailsViewModel: ArtObjectDetailsViewModelProtocol {
         view.setImagePath(requestParameters.artObject.imagePath)
         view.setTitle(requestParameters.artObject.title)
         view.setDescription(requestParameters.artObject.description)
-        context.dataService.getArtObjectDetails(parameters: requestParameters) { [weak view] (result: Result<ArtObject, APIError>) in
+        context.dataService.getArtObjectDetails(parameters: requestParameters) { [weak view] (result: Result<ArtObject, DSError>) in
             switch result {
             case .success(let artObject):
                 view?.setImagePath(artObject.imagePath)
@@ -28,8 +28,7 @@ final class ArtObjectDetailsViewModel: ArtObjectDetailsViewModelProtocol {
                 completion(Result.success(()))
 
             case .failure(let error):
-//                print(error)
-                completion(Result.success(()))
+                completion(Result.failure(RMError.dataService(error)))
             }
         }
     }
