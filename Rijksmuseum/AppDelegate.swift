@@ -33,30 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppDelegateProtocol {
 
     func setupAppContext(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         context = AppContext.makeContext()
-
-//        let requestParameters = ArtObjectsParameters(offset: 0, limit: 10)
-//        context.dataService.getArtObjects(requestIdentifier: "123", parameters: requestParameters) { (result: Result<[ArtObject], APIError>) in
-//            switch result {
-//            case .success(let array):
-//                print(array)
-//
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-
-///////////////
-
-//        let requestParameters = ArtObjectDetailsParameters(artObjectID: "SK-C-597")
-//        context.dataService.getArtObjectDetails(parameters: requestParameters) { (result: Result<ArtObject, APIError>) in
-//            switch result {
-//            case .success(let artObject):
-//                print(artObject)
-//
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
     }
 }
 
