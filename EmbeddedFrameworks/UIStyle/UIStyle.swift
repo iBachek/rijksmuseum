@@ -34,9 +34,5 @@ public struct UIStyle {
         public static var blue: UIColor {
             return UIColor(red: 99/255, green: 180/255, blue: 244/255, alpha: 1)
         }
-//
-//        public static var neumorphismWhite: UIColor {
-//            return UIColor(red: 224/255, green: 229/255, blue: 236/255, alpha: 1)
-//        }
     }
 }
